@@ -1,0 +1,80 @@
+{% block content %}
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left -->
+            <div class="col-lg-6">
+
+                <small class="text-uppercase text-secondary fw-semibold">
+                    Welcome To My Portfolio
+                </small>
+
+                <h2 class="fw-bold mt-3">
+
+                    Hi, I'm
+                    MH <span class="text-gradient">SHUVO</span>
+
+                    <br>
+
+                    Full Stack Developer
+
+                </h2>
+
+                <p class="text-secondary fs-5 mt-4">
+
+                    I'm a passionate and experienced Software Engineer with a strong background in web development. I enjoy working on challenging projects and solving complex problems.
+
+                </p>
+
+                <div class="mt-5">
+
+                    <a class="btn btn-gradient"
+                        hx-get="/contact/"
+                        hx-target="#content"
+                        hx-push-url="true"
+                        hx-on:click="setActive(this)">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+            <div class="col-lg-6 position-relative text-center mt-5 mt-lg-0">
+
+                <div class="circle-bg"></div>
+
+                <img
+                    src="https://avatars.githubusercontent.com/u/119663839?s=400&u=bc646507c2138d3b286b1dad08d84e91fcc9ad8b&v=4"
+                    class="img-fluid profile-img rounded-circle"
+                    alt="profile"
+                >
+
+                <div class="social-icons d-none d-lg-block">
+
+                    <a href="https://github.com/mdmahedihassanshuvo" target="_blank" class="icon-box">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/md-mahedi-hassan-shuvo/" target="_blank" class="icon-box">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/shuvo6795" target="_blank" class="icon-box">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock content %}

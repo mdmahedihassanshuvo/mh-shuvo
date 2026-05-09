@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-4">
+
+    <div class="container">
+
+        <!-- Logo -->
+        <a
+            class="navbar-brand fw-bold"
+            href="/"
+            hx-get="/"
+            hx-target="#content"
+            hx-push-url="true"
+        >
+            MH <span class="text-gradient">SHUVO</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items -->
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav"
+        >
+
+            <ul class="navbar-nav mx-auto gap-lg-4">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                    hx-get="/about/"
+                    hx-target="#content"
+                    hx-push-url="true"
+                    hx-on:click="setActive(this)">
+                        About Me
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                    hx-get="/projects/"
+                    hx-target="#content"
+                    hx-push-url="true"
+                    hx-on:click="setActive(this)">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                    hx-get="/block/"
+                    hx-target="#content"
+                    hx-push-url="true"
+                    hx-on:click="setActive(this)">
+                        Blog
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                    hx-get="/contact/"
+                    hx-target="#content"
+                    hx-push-url="true"
+                    hx-on:click="setActive(this)">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Button -->
+            <a
+                href="#"
+                class="btn btn-sm btn-gradient rounded-3 px-4 fw-semibold"
+            >
+                Download CV
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
