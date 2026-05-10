@@ -39,9 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'portfolio',
-    # Optional: django-vite integration. Install with `pip install django-vite`
-    # and uncomment the line below to enable template tags / manifest features.
-    # 'django_vite',
 ]
 
 MIDDLEWARE = [
