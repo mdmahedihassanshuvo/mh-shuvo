@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'portfolio',
+    # Optional: django-vite integration. Install with `pip install django-vite`
+    # and uncomment the line below to enable template tags / manifest features.
+    # 'django_vite',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -129,6 +133,17 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Vite / django-vite settings
+# If you install `django-vite` (pip install django-vite), it will use these
+# values. Keep `VITE_DEV_MODE = DEBUG` so the dev server is used when DEBUG=True.
+VITE_DEV_MODE = DEBUG
+VITE_DEV_SERVER = {
+    'PROTOCOL': 'http',
+    'HOST': 'localhost',
+    'PORT': 5173,
+}
+VITE_ASSETS_PATH = 'portfolio'  # relative static path where build outputs go
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
