@@ -1,0 +1,9 @@
+{% load static %}
+{# Vite scripts loader: dev (vite dev server) vs production (static build) #}
+{% if debug %}
+  <script type="module" src="http://localhost:5173/@vite/client"></script>
+  <script type="module" src="http://localhost:5173/src/main.jsx"></script>
+{% else %}
+  {# Production: include built asset. The exact filename is hashed; consider using django-vite or a manifest loader. #}
+  <script src="{% static 'portfolio/assets/index.js' %}"></script>
+{% endif %}
