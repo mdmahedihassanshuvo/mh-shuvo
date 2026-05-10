@@ -81,9 +81,11 @@
 
         // run after HTMX navigation
         document.body.addEventListener("htmx:afterSwap", updateActiveNav);
-        {% block js_extra %}{% endblock js_extra %}
     </script>
 
+    {% block js_extra %}{% endblock js_extra %}
+
+    {% include 'partials/portfolio/vite_scripts.html' %}
 
 </body>
 </html>
