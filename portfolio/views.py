@@ -1,40 +1,29 @@
-from django.views.generic import TemplateView
 from django.core.mail import send_mail
-from django.shortcuts import redirect
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
-class HtmxTemplateView(TemplateView):
+@csrf_exempt
+@require_http_methods(["POST"])
+def contact(request):
+    """
+    API endpoint for contact form submission (React).
+    Accepts JSON POST requests and sends email via Django.
+    """
+    try:
+        data = json.loads(request.body)
+        name = data.get('name', '').strip()
+        email = data.get('email', '').strip()
+        subject = data.get('subject', '').strip()
+        message = data.get('message', '').strip()
 
-    partial_template_name = None
-    full_template_name = "base.html"
-
-    def get_template_names(self):
-
-        if self.request.htmx and self.partial_template_name:
-            return [self.partial_template_name]
-
-        return [self.full_template_name]
-
-
-class HomeView(HtmxTemplateView):
-    partial_template_name = "partials/portfolio/pages/home/home.html"
-    full_template_name = "partials/portfolio/pages/home/home_page.html"
-
-
-class AboutView(HtmxTemplateView):
-    partial_template_name = "partials/portfolio/pages/about/about.html"
-    full_template_name = "partials/portfolio/pages/about/about_page.html"
-
-
-class ContactView(HtmxTemplateView):
-    partial_template_name = "partials/portfolio/pages/contact/contact.html"
-    full_template_name = "partials/portfolio/pages/contact/contact_page.html"
-
-    def post(self, request, *args, **kwargs):
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        subject = request.POST.get("subject")
-        message = request.POST.get("message")
+        if not all([name, email, subject, message]):
+            return JsonResponse(
+                {'success': False, 'message': 'All fields are required'},
+                status=400
+            )
 
         full_message = f"""
             New Contact Message
@@ -44,7 +33,7 @@ class ContactView(HtmxTemplateView):
 
             Message:
             {message}
-            """
+        """
 
         send_mail(
             subject=subject,
@@ -54,9 +43,15 @@ class ContactView(HtmxTemplateView):
             fail_silently=False,
         )
 
-        if request.htmx:
-            return self.render_to_response({
-                "success": True
-            })
+        return JsonResponse({'success': True, 'message': 'Message sent successfully'})
 
-        return redirect("portfolio_contact")
+    except json.JSONDecodeError:
+        return JsonResponse(
+            {'success': False, 'message': 'Invalid JSON'},
+            status=400
+        )
+    except Exception as e:
+        return JsonResponse(
+            {'success': False, 'message': str(e)},
+            status=500
+        )
