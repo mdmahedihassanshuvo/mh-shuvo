@@ -10,7 +10,7 @@ export default defineConfig(({ command }) => ({
     emptyOutDir: true
   },
   server: {
-    port: 5173,
+    port: 5000,
     strictPort: true,
     proxy: {
       '/api': 'http://localhost:8000'
