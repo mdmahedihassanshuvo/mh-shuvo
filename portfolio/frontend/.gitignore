@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Vite dev cache / build output
+.dist/
+dist/
+build/
+.vite/
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
+
+# Misc
+.cache/
+.parcel-cache/
+*.log
+
+# Local static build for Django integration
+/static/portfolio/
+
+# Optional lockfiles (if you prefer to ignore)
+# package-lock.json
+# yarn.lock

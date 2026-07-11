@@ -1,0 +1,72 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# =========================
+# Django
+# =========================
+db.sqlite3
+*.sqlite3
+
+# media/
+# staticfiles/
+
+# Django secret / local settings
+local_settings.py
+
+# Migrations (optional: only if you want clean repo reset)
+# */migrations/*.py
+# */migrations/*.pyc
+# !*/migrations/__init__.py
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Node (if you ever use frontend tools)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# PyCharm
+# =========================
+*.iml
