@@ -9,7 +9,7 @@ permissions:
   pull-requests: write
 jobs:
   refactor:
-    if: github.event.head_commit.message != 'chore: apply backend frontend refactor'
+    if: "github.event.head_commit.message != 'chore: apply backend frontend refactor'"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,4 +62,4 @@ jobs:
           git add -A
           git commit -m 'chore: apply backend frontend refactor'
           git push origin HEAD:refactor/separate-backend-frontend
-          curl --fail --silent --show-error -X POST -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' https://api.github.com/repos/$GITHUB_REPOSITORY/pulls -d '{"title":"Refactor: separate backend and frontend","head":"refactor/separate-backend-frontend","base":"main","body":"Separates Django backend and React/Vite frontend, preserves the portfolio, fixes configuration, and removes committed secrets."}'
+          curl --fail --silent --show-error -X POST -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' https://api.github.com/repos/$GITHUB_REPOSITORY/pulls -d '{"title":"Refactor: separate backend and frontend","head":"refactor/separate-backend-frontend","base":"main","body":"Separates Django backend and React/Vite frontend, preserves the portfolio, fixes configuration, and removes committed secrets."}' || true
