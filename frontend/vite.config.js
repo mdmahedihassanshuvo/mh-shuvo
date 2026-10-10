@@ -9,11 +9,11 @@ export default defineConfig(({ command, mode }) => {
     base: isGhPages ? '/' : command === 'build' ? '/static/portfolio/' : '/',
     plugins: [react()],
     build: {
-      outDir: isGhPages ? path.resolve(__dirname, 'dist') : path.resolve(__dirname, '../../static/portfolio'),
+      outDir: isGhPages ? path.resolve(__dirname, 'dist') : path.resolve(__dirname, '../backend/static/portfolio'),
       emptyOutDir: true
     },
     server: {
-      port: 5000,
+      port: 5173,
       strictPort: true,
       proxy: {
         '/api': 'http://localhost:8000'
