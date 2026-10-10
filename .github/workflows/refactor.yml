@@ -53,7 +53,7 @@ jobs:
           Path('README.md').write_text('# MH Shuvo Portfolio\n\nDjango backend and React/Vite frontend. See backend/ and frontend/.\n')
           PY
           cd frontend
-          npm install --package-lock-only --ignore-scripts
+          npm install --ignore-scripts
           npm run build
           cd ..
           rm -f .github/workflows/refactor.yml
