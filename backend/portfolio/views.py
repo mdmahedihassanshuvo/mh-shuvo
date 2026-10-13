@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
@@ -38,8 +39,9 @@ def contact(request):
         send_mail(
             subject=subject,
             message=full_message,
-            from_email=email,
-            recipient_list=["hassanmdmahedi729@gmail.com"],
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_RECIPIENT_EMAIL],
+            reply_to=[email],
             fail_silently=False,
         )
 
